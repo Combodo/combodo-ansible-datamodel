@@ -39,7 +39,6 @@ try {
 	// All the following actions use advanced forms that require more javascript to be loaded
 	$oP->LinkScriptFromAppRoot('js/forms-json-utils.js');
 	$oP->LinkScriptFromAppRoot('js/wizardhelper.js');
-	$oP->LinkScriptFromAppRoot('js/wizard.utils.js');
 	$oP->LinkScriptFromAppRoot('js/links/links_widget.js');
 	$oP->LinkScriptFromAppRoot('js/extkeywidget.js');
 
