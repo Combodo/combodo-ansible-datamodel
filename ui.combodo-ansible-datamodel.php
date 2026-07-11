@@ -1,4 +1,5 @@
 <?php
+
 /*
  * @copyright   Copyright (C) 2023 iTop
  * @license     http://opensource.org/licenses/AGPL-3.0
@@ -36,13 +37,13 @@ try {
 
 	$oP->set_base(utils::GetAbsoluteUrlAppRoot().'pages/');
 	// All the following actions use advanced forms that require more javascript to be loaded
-    $oP->LinkScriptFromAppRoot('js/forms-json-utils.js');
-    $oP->LinkScriptFromAppRoot('js/wizardhelper.js');
-    $oP->LinkScriptFromAppRoot('js/wizard.utils.js');
-    $oP->LinkScriptFromAppRoot('js/links/links_widget.js');
-    $oP->LinkScriptFromAppRoot('js/extkeywidget.js');
+	$oP->LinkScriptFromAppRoot('js/forms-json-utils.js');
+	$oP->LinkScriptFromAppRoot('js/wizardhelper.js');
+	$oP->LinkScriptFromAppRoot('js/wizard.utils.js');
+	$oP->LinkScriptFromAppRoot('js/links/links_widget.js');
+	$oP->LinkScriptFromAppRoot('js/extkeywidget.js');
 
-    switch ($operation) {
+	switch ($operation) {
 		///////////////////////////////////////////////////////////////////////////////////////////
 
 		case 'inventoryfiledisplay':    // Display zone in BIND format
@@ -65,11 +66,11 @@ try {
 				$oP->P(Dict::S('UI:ObjectDoesNotExist'));
 			} else {
 				// Dump data file
-				$oObj->DisplayInventoryFile($oP, array('format' => $sFormat));
+				$oObj->DisplayInventoryFile($oP, ['format' => $sFormat]);
 			}
 			break; // End case datafiledisplay
 
-		///////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////////////////
 
 		case 'cancel':    // An action was cancelled
 		case 'displaylist':
@@ -134,7 +135,7 @@ try {
 				$oLog->Set('issue', 'PHP Exception');
 				$oLog->Set('impact', 'Page could not be displayed');
 				$oLog->Set('callstack', $e->getTrace());
-				$oLog->Set('data', array());
+				$oLog->Set('data', []);
 				$oLog->DBInsertNoReload();
 			} catch (Exception $e) {
 				IssueLog::Error("Failed to log issue into the DB");
@@ -144,4 +145,3 @@ try {
 		IssueLog::Error($e->getMessage());
 	}
 }
-
